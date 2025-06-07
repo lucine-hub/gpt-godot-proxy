@@ -5,7 +5,7 @@ import traceback
 
 app = Flask(__name__)
 
-# 🔑 Replace this with your own OpenAI API key if not using environment variables
+# ✅ Set your OpenAI API key from environment variable
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
 @app.route("/")
@@ -21,7 +21,7 @@ def chat():
         user_message = data.get("message", "")
         print("User message:", user_message)
 
-        response = openai.ChatCompletion.create(
+        response = openai.chat.completions.create(
             model="gpt-3.5-turbo",
             messages=[{"role": "user", "content": user_message}]
         )
