@@ -2,8 +2,10 @@ from flask import Flask, request, jsonify
 import openai
 import os
 import traceback
+from flask_cors import CORS  # ✅ add this import
 
 app = Flask(__name__)
+CORS(app)  # ✅ allow all origins (your React frontend can access this)
 
 # ✅ Set your OpenAI API key from environment variable
 openai.api_key = os.getenv("OPENAI_API_KEY")
