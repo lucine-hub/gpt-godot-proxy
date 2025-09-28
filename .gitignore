@@ -1,0 +1,10 @@
+# Environment variables
+.env
+__pycache__/
+*.pyc
+node_modules/
+.vscode/
+*.log
+
+# Don't commit your actual API key
+openai_api_key.txt
