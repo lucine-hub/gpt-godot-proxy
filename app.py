@@ -40,15 +40,17 @@ def chat():
     
     print(f"User {user_id} now has {len(user_sessions[user_id])} messages in history")
 
+
     # Build emotion context for the system prompt - ENHANCED
     emotion_instructions = {
         'happy': "🌟 IMPORTANT: The user is feeling HAPPY and upbeat! Match their energy with extra enthusiasm, exclamation marks, and positive language! Be more playful and celebratory!",
         'serious': "🎯 IMPORTANT: The user is in a SERIOUS mood. Be more thoughtful, focused, and mature in your responses. Use less casual language and be more direct and supportive.",
         'sad': "💙 IMPORTANT: The user is feeling SAD. Be extra gentle, caring, and supportive. Use softer language, offer comfort, and be very understanding. Avoid being too upbeat.",
         'tired': "😴 IMPORTANT: The user is feeling TIRED. Be understanding and gentle. Suggest they take care of themselves. Use calmer, slower-paced language.",
-        'bored': "🎉 IMPORTANT: The user is feeling BORED. Be more engaging, suggest fun activities, ask interesting questions, and be more energetic to help spark their interest!",
+        'annoyed': "⚡ IMPORTANT: The user is feeling ANNOYED. Be careful with tone—stay supportive, patient, and avoid being overly cheerful. Acknowledge their frustration and show empathy without being pushy.",
         'chill': "😌 IMPORTANT: The user is feeling RELAXED and chill. Keep your usual friendly, laid-back tone but be warm and easygoing."
     }
+
 
     current_emotion_instruction = emotion_instructions.get(user_emotion, emotion_instructions['chill'])
 
@@ -66,7 +68,7 @@ def chat():
                 "- Your response style MUST match their current emotion\n"
                 "- If they're sad, be gentle and comforting\n"
                 "- If they're happy, be enthusiastic and energetic\n"
-                "- If they're bored, be engaging and suggest activities\n"
+                "- If they're annoyed, stay calm, patient, and supportive; avoid being overly cheerful\n"
                 "- If they're serious, be more mature and focused\n"
                 "- If they're tired, be understanding and calming\n"
                 "- Always acknowledge their emotional state naturally in your response\n\n"
